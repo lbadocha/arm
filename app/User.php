@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'login', 'name', 'surname', 'password',
+        'login', 'name', 'surname', 'password', 'user_type_id'
     ];
 
     /**
@@ -38,4 +38,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+
+
+
+     /**
+     * Get the post that owns the comment.
+     */
+    public function user_type()
+    {
+        return $this->belongsTo('App\UserType', 'user_type_id', 'id');
+    }
 }

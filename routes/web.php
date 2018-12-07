@@ -17,9 +17,22 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+// USER routing
 Route::get('/users', 'UserController@index')->name('users');
+
 Route::get('/users/adduser', 'UserController@create')->name('adduser');
 
 Route::post('/users/adduser', 'UserController@store')->name('adduser');
 
 Route::delete('/users/deleteuser/{id}', 'UserController@destroy')->name('deleteuser');
+
+Route::get('/users/edituser/{id}', 'UserController@edit')->name('edituser');
+
+Route::put('/users/{id}', 'UserController@update')->name('updateuser');
+
+// PROPOSAL routing
+Route::get('/proposals', 'ProposalController@index')->name('proposals');
+
+Route::get('/proposals/addproposal', 'ProposalController@create')->name('addproposal');
+
+Route::post('/proposals/addproposal', 'ProposalController@store')->name('addproposal');
